@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div class="search-container">
+    <form method="get">
+        <input type="text" name="q" placeholder="Search jobs...">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div class="jobs-list">
+    {% for job in jobs %}
+    <div class="job-card">
+        <h3>{{ job.title }}</h3>
+        <p>Company: {{ job.company }}</p>
+        <p>Location: {{ job.location }}</p>
+        <p>Salary: {{ job.salary }}</p>
+        <p>Posted: {{ job.scraped_date }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
